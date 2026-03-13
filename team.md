@@ -1,53 +1,80 @@
-# Notre Équipe
+# Équipe
 
 ::::{grid} 1 2 3 3
 
-:::{grid-item-card} André Cyr, M.Ing., ing.
-**IRM**
+:::{grid-item}
+```{image} images/team/andre_cyr.png
+:alt: André Cyr
+:height: 200px
+:align: center
+```
+**André Cyr, M.Ing., ing.**
 
-[support.unf@criugm.qc.ca](mailto:support.unf@criugm.qc.ca)
+Ingénieur IRM et responsable de la sécurité UNF [📧](mailto:mailto:support.unf@criugm.q)
 :::
 
-:::{grid-item-card} Arnaud Boré
-**Neuroinformatique**
+:::{grid-item}
+```{image} images/team/basile_pinsard.jpg
+:alt: Basile Pinsard
+:height: 200px
+:align: center
+```
+**[Basile Pinsard, PhD](https://www.linkedin.com/in/basile-pinsard-94161b8/)**
 
-[support.unf@criugm.qc.ca](mailto:support.unf@criugm.qc.ca)
+Responsable neuroinformatique [📧](mailto:mailto:support.unf@criugm.q)
 :::
 
-:::{grid-item-card} Basile Pinsard, PhD
-**Neuroinformatique**
+:::{grid-item}
+```{image} images/team/francine_belanger.png
+:alt: Francine Bélanger
+:height: 200px
+:align: center
+```
+**Francine Bélanger**
 
-[support.unf@criugm.qc.ca](mailto:support.unf@criugm.qc.ca)
+Responsable de la coordination administrative [📧](mailto:mailto:support.unf@criugm.q)
 :::
 
-:::{grid-item-card} Francine Bélanger
-**Coordination**
-
-[support.unf@criugm.qc.ca](mailto:support.unf@criugm.qc.ca)
+:::{grid-item}
+```{image} images/team/julie_boyle.jpg
+:alt: Julie A Boyle
+:height: 200px
+:align: center
+```
+**[Julie A Boyle](https://www.linkedin.com/in/julie-boyle-064b17297/)**
+Responsable financière et projets spéciaux. [📧](mailto:julie.boyle@criugm.qc.ca)
 :::
 
-:::{grid-item-card} Julien Cohen-Adad, Ph.D.
-**Co-Direction**
+:::{grid-item}
+```{image} images/team/karim_jerbi.jpg
+:alt: Karim Jerbi
+:height: 200px
+:align: center
+```
+**[Karim Jerbi, Ph.D.](https://www.linkedin.com/in/karimjerbi/)**
 
-Julien Cohen-Adad, Ph.D., est directeur adjoint de l'Unité de neuroimagerie fonctionnelle, Centre de recherche de l'Institut universitaire de gériatrie de Montréal, co-directeur du laboratoire NeuroPoly avec Prof. Nikola Stikov et professeur agrégé à la Polytechnique Montréal
-
-[jcohen@polymtl.ca](mailto:jcohen@polymtl.ca)
+Directeur adjoint de l'UNF pour la neurothèque [📧](mailto:karim.jerbi@umontreal.ca)
 :::
 
-:::{grid-item-card} Karim Jerbi, Ph.D.
-**Co-Direction**
+:::{grid-item}
+```{image} images/team/pierre_bellec.jpg
+:alt: Lune Bellec
+:height: 200px
+:align: center
+```
+**[Lune Bellec, Ph.D.](https://www.linkedin.com/in/lune-bellec-6831b9b/)**
 
-Karim Jerbi, Ph.D., est Directeur adjoint de l'Unité de neuroimagerie fonctionnelle, Centre de recherche de l'Institut de gériatrie de Montréal, directeur du laboratoire *Computational and Cognitive Neuroscience* et professeur agrégé au département de psychologie de l'Université de Montréal.
-
-[karim.jerbi@umontreal.ca](mailto:karim.jerbi@umontreal.ca)
+Co-directrice de l'UNF pour la neuroinformatique [📧](mailto:lune.bellec@umontreal.ca)
 :::
 
-:::{grid-item-card} Pierre Bellec, Ph.D.
-**Direction**
+:::{grid-item}
+```{image} images/team/julien_cohen-adad.jpg
+:alt: Julien Cohen-Adad
+:height: 200px
+:align: center
+```
+**[Julien Cohen-Adad, Ph.D.](https://www.linkedin.com/in/jcohenadad/)**
 
-Pierre Bellec, Ph.D., est Directeur scientifique de l'Unité de neuroimagerie fonctionnelle, Centre de recherche de l'Institut de gériatrie de Montréal, chercheur principal du laboratoire SIMEXP et Professeur agrégé au département de psychologie de l'Université de Montréal.
-
-[pierre.bellec@criugm.qc.ca](mailto:pierre.bellec@criugm.qc.ca)
+Directeur scientifique de l'UNF [📧](mailto:jcohen@polymtl.ca)
 :::
-
 ::::

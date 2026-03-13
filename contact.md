@@ -1,16 +1,11 @@
 # Contact
 
-## Support technique et réservations
+📧 **Courriel :** [support.unf@criugm.qc.ca](mailto:support.unf@criugm.qc.ca)
 
-**Courriel :** [support.unf@criugm.qc.ca](mailto:support.unf@criugm.qc.ca)
+**Téléphone :** 514 340 3540 ext 3633
 
-## Adresse
-
-Institut universitaire de gériatrie de Montréal (CRIUGM)
+**Adresse :** Centre de recherche de l'Institut universitaire de gériatrie de Montréal (CRIUGM)
 4545, chemin Queen-Mary
 Montréal (Québec) H3W 1W5
 
-## Liens utiles
-
-- [Calendrier de réservation](facility/reservation/step_by_step)
-- [Tarifs](rate)
+![CRIUGM](images/criugm.png)
