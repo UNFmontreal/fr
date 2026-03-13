@@ -1,0 +1,94 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  title: "UNF Montréal"
+  description: "Unité de Neuroimagerie Fonctionnelle — CRIUGM"
+  github: https://github.com/UNFmontreal/fr
+  toc:
+    - file: intro.md
+    - title: À propos de l'UNF
+      children:
+        - file: about.md
+        - file: team.md
+        - title: Bienvenue à l'UNF
+          children:
+            - file: welcome/index.md
+            - file: welcome/account.md
+            - file: welcome/ethic.md
+            - file: welcome/safety_guidelines.md
+        - file: contact.md
+    - title: Installations
+      children:
+        - file: facility/index.md
+        - file: facility/MRI.md
+        - file: facility/simulation_room.md
+        - file: facility/testing_room.md
+        - file: facility/hardware_software.md
+        - file: facility/neurotheque.md
+        - title: Réservations
+          children:
+            - file: facility/reservation/index.md
+            - file: facility/reservation/step_by_step.md
+        - title: Urgences
+          children:
+            - file: facility/urgency/index.md
+            - file: facility/urgency/fire.md
+            - file: facility/urgency/quench.md
+            - file: facility/urgency/medical.md
+            - file: facility/urgency/codes.md
+    - title: Nouvelles
+      children:
+        - file: news/index.md
+        - file: news/test-post-1.md
+        - file: seminars/index.md
+    - title: Votre étude
+      children:
+        - file: your_study/index.md
+        - file: your_study/visit.md
+        - file: your_study/finding.md
+        - file: your_study/damage.md
+        - title: Configuration IRM
+          children:
+            - file: your_study/setup_mri/index.md
+            - file: your_study/setup_mri/forms.md
+            - file: your_study/setup_mri/parameters.md
+            - file: your_study/setup_mri/reservation.md
+            - file: your_study/setup_mri/stimuli.md
+    - title: Vos données
+      children:
+        - file: your_data/index.md
+        - file: your_data/data_storage.md
+        - file: your_data/download_data.md
+        - file: your_data/preproc_data.md
+        - file: your_data/data_analysis.md
+    - title: Formations
+      children:
+        - file: course/index.md
+        - file: course/safety_training.md
+        - file: course/compute_canada.md
+        - file: course/globus.md
+    - title: Documents & Tarifs
+      children:
+        - file: documents/index.md
+        - file: documents/screening.md
+        - file: documents/screening_staff.md
+        - file: documents/logos.md
+        - title: COVID-19
+          children:
+            - file: documents/covid/index.md
+            - file: documents/covid/summary_safety_measure.md
+            - file: documents/covid/detailed_safety_measure.md
+            - file: documents/covid/desinfection_procedures.md
+            - file: documents/covid/researcher.md
+            - file: documents/covid/participant.md
+            - file: documents/covid/Procedure_Visite_participant_CCSMTL.md
+            - file: documents/covid/Autorisation_participant_recherche-DEUR_CCSMTL.md
+            - file: documents/covid/phase_3/approbation.md
+            - file: documents/covid/phase_3/submission.md
+        - file: rate.md
+
+site:
+  template: book-theme
+  options:
+    logo: images/logo_unf.png
+    favicon: images/logo_unf.png
