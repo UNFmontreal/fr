@@ -1,13 +1,8 @@
----
-title: "Neurothèque"
-date: 2024-01-04
-description: >
- Environnement, accès et sécurité
----
+# Neurothèque
 
 ![Neurothèque](/images/documentation/neurotheque_banner.png)
 
-La Neurothèque, affiliée à l'Unité de Neuroimagerie Fonctionnelle (UNF) installée à l'Institut Universitaire de Gériatrie de Montréal ([IUGM](https://iugm.ca/)), est une plateforme d'acquisition de données dédiée à l'électrophysiologie et à l'électroencéphalographie (EEG) sans-fil en particulier. Notre centre dispose de tout l'équipement nécessaire à la mise en place d'acquisitions EEG au cours de tâches cognitives diverses, et offre la possibilité d'utiliser un casque de VR simultanément à l'EEG. La Neurothèque permet ainsi l'acquisition de données au cours de paradigmes naturalistes (jeu vidéo, films, interactions sociales), ou de tâches neuropsychologiques plus classiques.
+La Neurothèque est une plateforme d'acquisition de données dédiée à l'électrophysiologie et à l'électroencéphalographie (EEG) sans-fil en particulier. L'UNF dispose de tout l'équipement nécessaire à la mise en place d'acquisitions EEG au cours de tâches cognitives diverses, et offre la possibilité d'utiliser un casque de VR simultanément à l'EEG. La Neurothèque permet ainsi l'acquisition de données au cours de paradigmes naturalistes (jeu vidéo, films, interactions sociales), ou de tâches neuropsychologiques plus classiques.
 
 Notre équipe s'engage en outre à vous fournir un soutien technique et un service de formation pour la mise en place, l'acquisition et l'analyse de vos données.
 
@@ -24,7 +19,7 @@ La Neurothèque est située dans la salle RS718, au sous-sol de l'IUGM. Pour vou
     - Trigger hub (port parallèle DB25, communication TTL, connecteur audio 3.5mm)
     - EOG/ECG capability
 
-    
+
 ![DSI-24](/images/documentation/dsi24.jpeg)
 
 * Casque de VR [Meta Quest 3](https://www.meta.com/ca/fr/quest/quest-3/)
@@ -66,6 +61,6 @@ Une boîte à outils modulaire contenant des scripts de prétraitement ainsi que
 
 ## Contacts
 
-Pour plus d'informations concernant la Neurothèque, ou pour la mise en place de votre acquisition de données, veuillez contacter : 
+Pour plus d'informations concernant la Neurothèque, ou pour la mise en place de votre acquisition de données, veuillez contacter :
 - [Dr. Karim Jerbi](mailto:karim.jerbi.udem@gmail.com) (directeur scientifique)
 - [Yann Harel](mailto:yharel109@gmail.com) (assistance et support)

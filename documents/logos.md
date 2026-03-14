@@ -1,5 +1,5 @@
 # Logos
-Vous pouvez utiliser ces logos dans vos communications concernant des résultats de recherche obtenus avec des données recueillies à l'UNF. Ces logos sont sous licence CC0. 
+Vous pouvez utiliser ces logos dans vos communications concernant des résultats de recherche obtenus avec des données recueillies à l'UNF. Ces logos sont sous licence [CC0](https://wiki.creativecommons.org/wiki/CC0). 
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5em; margin-top: 1.5em;">
 
   <div style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden; text-align: center;">

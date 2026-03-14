@@ -14,13 +14,13 @@ project:
         - file: links.md
     - title: Installations
       children:
-        - file: facility/acces.md
+        - file: facility/access.md
         - file: facility/MRI.md
         - file: facility/simulation_room.md
         - file: facility/testing_room.md
         - file: facility/hardware_software.md
         - file: facility/neurotheque.md
-    - title: Votre étude
+    - title: Votre étude IRM
       children:
         - title: Avant votre visite
           children:
@@ -43,14 +43,7 @@ project:
           children:
             - file: your_study/after_visit/finding.md
             - file: your_study/after_visit/damage.md
-
-    - title: Vos données
-      children:
-        - file: your_data/index.md
-        - file: your_data/data_storage.md
-        - file: your_data/download_data.md
-        - file: your_data/preproc_data.md
-        - file: your_data/data_analysis.md
+            - file: your_data/download_data.md
     - title: Documents & Tarifs
       children:
         - file: documents/screening.md

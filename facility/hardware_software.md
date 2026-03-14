@@ -1,9 +1,4 @@
----
-title: "Matériels et logiciels"
-date: 2020-01-05
-description: >
- Liste du matériel et des logiciels disponibles
----
+# Matériels et logiciels
 
 L'UNF met à diposition des chercheurs du matériel et des logiciels.
 Certains matériels doivent être reservés via le protocole de reservation des différentes installations de l'UNF pour pouvoir les utiliser.

@@ -1,14 +1,6 @@
----
-title: "Salle de test"
-date: 2020-01-05
-description: >
- Environnement, accès et sécurité
----
+# Salle de test
 
-La salle de test (R0743) se trouve au sein de l'Institut universitaire de gériatrie de Montréal (IUGM). Les
-déplacements dans les installations de l'UNF sont donc soumis à des consignes
-de sécurité et de distanciation afin de protéger au mieux les résidents et
-l'ensemble des employés.
+La salle de test (R0743) se trouve au sein de l'Institut universitaire de gériatrie de Montréal (IUGM).
 
 ## Heures d’ouverture
 
@@ -32,11 +24,6 @@ si vous n’avez pas de carte d’accès pour entrer à l’UNF
 si vous n'avez pas besoin d'une aide technique du personnel de l’UNF
 ```
 
-## Réservation
-
-La reservation de la salle de test se fait via le calendrier de reservation et la [__section reservation__](https://unf-montreal.ca/documentation/facility/reservation/) de la documentation vous montre pas à pas comment faire.  
-
-
-## Taux horaire
+## Note
 
 Il n'y a aucun frais pour l'utilisation de la salle de test. Celle-ci doit toutefois être utilisée en lien avec des projets en cours à l'UNF ou en préparation de ceux-ci.

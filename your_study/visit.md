@@ -16,7 +16,3 @@ Il est utile d’avoir une liste de vérification pour réduire le risque d’er
 Au moins un membre de l'équipe de recherche doit être présent au cours de la session d’acquisition pour pouvoir répondre aux besoins et aux demandes de leurs participants, et assister le personnel UNF en cas d'urgence.
 
 Dans le cas où le participant est membre de l'équipe de recherche (par exemple pour un pilot), il est nécessaire qu'un membre supplémentaire de l'équipe de recherche soit présent lors de la session d'acquisition.
-
-## Carte d'accès pour entrer à l’UNF
-
-Pour entrer à l’UNF, il faut avoir une carte d’accès. Afin d'obtenir une carte d'accès vous devez envoyer un email à l'adresse [__suivante__](mailto:support.unf@criugm.qc.ca). Un dépôt de 20$ est requis pour obtenir une carte. De plus, vous devez avoir complété la [formation de sécurité en IRM](safety-guidelines) avant d'obtenir votre carte.

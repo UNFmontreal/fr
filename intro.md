@@ -18,18 +18,13 @@ Notre équipe, contacts, histoires et liens utiles
 :::
 
 :::{grid-item-card} 🧲 Installations
-:link: facility/index
+:link: facility/access
 Scanner IRM Prisma 3T, salle de simulation, salle de test, équipements et neurothèque.
 :::
 
 :::{grid-item-card} 📋 Votre étude
 :link: your_study/index
 Formulaires, paramètres IRM, réservation et déroulement de votre visite.
-:::
-
-:::{grid-item-card} 💾 Vos données
-:link: your_data/index
-Stockage, téléchargement, prétraitement et analyse de vos données.
 :::
 
 :::{grid-item-card} 📁 Documents
