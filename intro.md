@@ -23,7 +23,7 @@ Scanner IRM Prisma 3T, salle de simulation, salle de test, équipements et neuro
 :::
 
 :::{grid-item-card} 📋 Votre étude
-:link: your_study/index
+:link: your_study/before_visit/account
 Formulaires, paramètres IRM, réservation et déroulement de votre visite.
 :::
 
