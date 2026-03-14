@@ -1,9 +1,4 @@
----
-title: "Découverte fortuite"
-date: 2017-01-05
-description: >
-  Protocole suivant une découverte fortuite
----
+# Découverte fortuite
 
 Si une région présentant des particularités inhabituelles est identifiée sur une image, l'UNF a établi une procédure à suivre lors de cas de découvertes fortuites.
 

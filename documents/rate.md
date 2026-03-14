@@ -1,11 +1,6 @@
----
-title: "Taux horaire de l'IRM"
-date: 2021-07-14
----
+# Taux horaire de l'IRM
 
-### <span style="color:red"> Nouveaux taux qui seront en vigueur à compter de juin 2022.</span>
-En raison de l’augmentation des coûts d’opération de la plateforme nous devons augmenter nos frais d’utilisation (voir les détails ci-dessous). Cette augmentation contribuera à assurer la viabilité de la plateforme.
-Ces nouveaux tarifs **ne s’appliqueront pas** sur les projets en cours, mais **uniquement** pour les nouveaux projets démarrant à compter de juin 2022.
+Ces tarifs s'appliquent aux projets qui ont démarré à compter de juin 2022.
 
 |Statuts       |Tarifs horaire - heures régulières (9h à 17h) [1]|Tarifs horaire - Après 17h et les fins de semaines [2] [3]|
 |-------|---------------------------------------------|--------------------------------------------------|
@@ -16,7 +11,6 @@ Ces nouveaux tarifs **ne s’appliqueront pas** sur les projets en cours, mais *
 
 
 ---
-
 
 __Information additionnelle__
 

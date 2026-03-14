@@ -1,9 +1,4 @@
----
-title: "Comptes"
-date: 2020-02-06
-description: >
-  Creation d'un compte UNF
----
+# Comptes
 
 Pour pouvoir mener à bien votre étude à l'UNF, vous devez obtenir un compte d'usager.
 Ce compte va vous permettre de faire une réservation (IRM, salle de simulation ou salle de test) en utilisant le __[calendrier de réservation](https://reservation.unf-montreal.ca/Web/dashboard.php)__ et vous donnera accès aux serveurs de calculs.
