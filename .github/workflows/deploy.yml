@@ -8,7 +8,7 @@ on:
 
 env:
   # Site will be served at https://unfmontreal.github.io/fr
-  BASE_URL: /fr
+  BASE_URL: /fr/
 
 permissions:
   contents: read
