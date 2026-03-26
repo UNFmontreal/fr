@@ -3,7 +3,7 @@
 ::::{grid} 1 2 3 3
 
 :::{grid-item}
-```{image} images/team/andre_cyr.jpg
+```{image} images/team/andre_cyr.png
 :alt: André Cyr
 :height: 200px
 :align: center
