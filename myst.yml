@@ -52,6 +52,9 @@ project:
         - file: documents/rate.md
 site:
   template: book-theme
+  actions:
+    - title: EN
+      url: "https://translate.google.com/translate?sl=fr&tl=en&u=https://unfmontreal.github.io/fr/"
   options:
     logo: images/logo_unf.png
     favicon: images/logo_unf.png

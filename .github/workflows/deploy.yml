@@ -42,6 +42,32 @@ jobs:
           python -m pip install jupyter-book
       - name: Build HTML Assets
         run: jupyter-book build --html
+      - name: Make translate link dynamic
+        run: |
+          python3 << 'PYEOF'
+          import os
+
+          script = """<script>
+          document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href*="translate.google.com"]').forEach(function(a) {
+              a.href = 'https://translate.google.com/translate?sl=fr&tl=en&u=' + encodeURIComponent(window.location.href);
+              a.target = '_blank';
+              a.rel = 'noopener noreferrer';
+            });
+          });
+          </script>"""
+
+          for root, dirs, files in os.walk('_build/html'):
+            for fname in files:
+              if fname.endswith('.html'):
+                path = os.path.join(root, fname)
+                with open(path, 'r', encoding='utf-8', errors='ignore') as f:
+                  content = f.read()
+                if '</body>' in content:
+                  content = content.replace('</body>', script + '\n</body>', 1)
+                  with open(path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+          PYEOF
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
