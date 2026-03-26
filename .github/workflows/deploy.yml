@@ -57,19 +57,32 @@ jobs:
                      window.location.hostname.endsWith('.translate.goog');
             }
 
+            // Strip Google Translate's own _x_tr_* params before using a URL as
+            // translate input — including them causes duplicate params and "can't translate".
+            function cleanUrl(url) {
+              try {
+                var u = new URL(url);
+                var p = new URLSearchParams(u.search);
+                ['_x_tr_sl','_x_tr_tl','_x_tr_hl','_x_tr_hist','_x_tr_pto'].forEach(function(k){p.delete(k);});
+                u.search = p.toString();
+                return u.toString();
+              } catch(_) { return url; }
+            }
+
             function getOriginalUrl() {
+              var url = window.location.href;
               if (window.location.hostname === 'translate.google.com') {
                 try {
                   var u = new URLSearchParams(window.location.search).get('u');
-                  if (u) return decodeURIComponent(u);
+                  if (u) url = decodeURIComponent(u);
                 } catch(_) {}
+              } else if (window.location.hostname.endsWith('.translate.goog')) {
+                url = BASE + window.location.pathname + window.location.search;
               }
-              if (window.location.hostname.endsWith('.translate.goog')) {
-                return BASE + window.location.pathname + window.location.search;
-              }
-              return window.location.href;
+              return cleanUrl(url);
             }
 
+            // EN button: navigate to proxy (same tab)
             document.addEventListener('click', function(e) {
               var a = e.target.closest('a[href*="#translate"]');
               if (!a) return;
@@ -78,25 +91,20 @@ jobs:
               window.location.href = TRANSLATE + encodeURIComponent(getOriginalUrl());
             }, true);
 
+            // In proxy: stop React Router from intercepting link clicks so the
+            // browser does a full-page reload (which stays within the proxy).
             if (inProxy()) {
               document.addEventListener('click', function(e) {
                 var a = e.target.closest('a[href]');
                 if (!a || !a.href || a.href.includes('#translate')) return;
                 var href = a.href;
-                var isProxy = href.includes('translate.google.com') || href.includes('.translate.goog');
-                var isOurSite = href.includes('unfmontreal.github.io');
-                var isRelative = href.startsWith(window.location.origin);
-                if (!isProxy && !isOurSite && !isRelative) return;
-                e.preventDefault();
                 e.stopPropagation();
-                if (isProxy) {
-                  window.location.href = href;
-                } else {
-                  try {
-                    var u = new URL(href);
-                    window.location.href = TRANSLATE + encodeURIComponent(BASE + u.pathname + u.search);
-                  } catch(_) { window.location.href = href; }
+                if (href.includes('unfmontreal.github.io')) {
+                  // React Router reset the href to the original site — redirect via proxy
+                  e.preventDefault();
+                  window.location.href = TRANSLATE + encodeURIComponent(cleanUrl(href));
                 }
+                // .translate.goog links and external links: browser follows naturally
               }, true);
             }
           })();
