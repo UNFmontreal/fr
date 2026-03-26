@@ -42,74 +42,10 @@ jobs:
           python -m pip install jupyter-book
       - name: Build HTML Assets
         run: jupyter-book build --html
-      - name: Inject Google Translate logic
+      - name: Set HTML language to French
         run: |
           python3 << 'PYEOF'
           import os
-
-          body_snippet = """<script>
-          (function() {
-            var BASE = 'https://unfmontreal.github.io';
-            var TRANSLATE = 'https://translate.google.com/translate?sl=fr&tl=en&u=';
-
-            function inProxy() {
-              return window.location.hostname === 'translate.google.com' ||
-                     window.location.hostname.endsWith('.translate.goog');
-            }
-
-            // Strip Google Translate's own _x_tr_* params before using a URL as
-            // translate input — including them causes duplicate params and "can't translate".
-            function cleanUrl(url) {
-              try {
-                var u = new URL(url);
-                var p = new URLSearchParams(u.search);
-                ['_x_tr_sl','_x_tr_tl','_x_tr_hl','_x_tr_hist','_x_tr_pto'].forEach(function(k){p.delete(k);});
-                u.search = p.toString();
-                return u.toString();
-              } catch(_) { return url; }
-            }
-
-            function getOriginalUrl() {
-              var url = window.location.href;
-              if (window.location.hostname === 'translate.google.com') {
-                try {
-                  var u = new URLSearchParams(window.location.search).get('u');
-                  if (u) url = decodeURIComponent(u);
-                } catch(_) {}
-              } else if (window.location.hostname.endsWith('.translate.goog')) {
-                url = BASE + window.location.pathname + window.location.search;
-              }
-              return cleanUrl(url);
-            }
-
-            // EN button: navigate to proxy (same tab)
-            document.addEventListener('click', function(e) {
-              var a = e.target.closest('a[href*="#translate"]');
-              if (!a) return;
-              e.preventDefault();
-              e.stopPropagation();
-              window.location.href = TRANSLATE + encodeURIComponent(getOriginalUrl());
-            }, true);
-
-            // In proxy: stop React Router from intercepting link clicks so the
-            // browser does a full-page reload (which stays within the proxy).
-            if (inProxy()) {
-              document.addEventListener('click', function(e) {
-                var a = e.target.closest('a[href]');
-                if (!a || !a.href || a.href.includes('#translate')) return;
-                var href = a.href;
-                e.stopPropagation();
-                if (href.includes('unfmontreal.github.io')) {
-                  // React Router reset the href to the original site — redirect via proxy
-                  e.preventDefault();
-                  window.location.href = TRANSLATE + encodeURIComponent(cleanUrl(href));
-                }
-                // .translate.goog links and external links: browser follows naturally
-              }, true);
-            }
-          })();
-          </script>"""
-
           for root, dirs, files in os.walk('_build/html'):
             for fname in files:
               if fname.endswith('.html'):
@@ -117,7 +53,6 @@ jobs:
                 with open(path, 'r', encoding='utf-8', errors='ignore') as f:
                   content = f.read()
                 content = content.replace('<html lang="en"', '<html lang="fr"', 1)
-                content = content.replace('</body>', body_snippet + '\n</body>', 1)
                 with open(path, 'w', encoding='utf-8') as f:
                   f.write(content)
           PYEOF
