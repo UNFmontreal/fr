@@ -42,17 +42,36 @@ jobs:
           python -m pip install jupyter-book
       - name: Build HTML Assets
         run: jupyter-book build --html
-      - name: Make translate link dynamic
+      - name: Inject Google Translate widget
         run: |
           python3 << 'PYEOF'
           import os
 
-          script = """<script>
+          head_snippet = """<style>
+          #google_translate_element { display:none; }
+          .goog-te-banner-frame { display:none !important; }
+          body { top: 0 !important; }
+          </style>
+          <script type="text/javascript">
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'fr',
+              includedLanguages: 'en',
+              autoDisplay: false
+            }, 'google_translate_element');
+          }
+          </script>
+          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>"""
+
+          body_snippet = """<div id="google_translate_element"></div>
+          <script>
           document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('a[href*="translate.google.com"]').forEach(function(a) {
-              a.href = 'https://translate.google.com/translate?sl=fr&tl=en&u=' + encodeURIComponent(window.location.href);
-              a.target = '_blank';
-              a.rel = 'noopener noreferrer';
+            document.querySelectorAll('a[href="#translate"]').forEach(function(a) {
+              a.addEventListener('click', function(e) {
+                e.preventDefault();
+                var sel = document.querySelector('.goog-te-combo');
+                if (sel) { sel.value = 'en'; sel.dispatchEvent(new Event('change')); }
+              });
             });
           });
           </script>"""
@@ -63,10 +82,10 @@ jobs:
                 path = os.path.join(root, fname)
                 with open(path, 'r', encoding='utf-8', errors='ignore') as f:
                   content = f.read()
-                if '</body>' in content:
-                  content = content.replace('</body>', script + '\n</body>', 1)
-                  with open(path, 'w', encoding='utf-8') as f:
-                    f.write(content)
+                content = content.replace('</head>', head_snippet + '\n</head>', 1)
+                content = content.replace('</body>', body_snippet + '\n</body>', 1)
+                with open(path, 'w', encoding='utf-8') as f:
+                  f.write(content)
           PYEOF
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
