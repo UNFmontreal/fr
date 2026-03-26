@@ -54,7 +54,7 @@ site:
   template: book-theme
   actions:
     - title: EN
-      url: "#translate"
+      url: "https://unfmontreal.github.io/fr/#translate"
   options:
     logo: images/logo_unf.png
     favicon: images/logo_unf.png
