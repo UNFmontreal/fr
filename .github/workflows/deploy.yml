@@ -42,19 +42,64 @@ jobs:
           python -m pip install jupyter-book
       - name: Build HTML Assets
         run: jupyter-book build --html
-      - name: Inject Google Translate widget
+      - name: Inject Google Translate logic
         run: |
           python3 << 'PYEOF'
           import os
 
           body_snippet = """<script>
-          document.addEventListener('click', function(e) {
-            var a = e.target.closest('a[href*="#translate"]');
-            if (!a) return;
-            e.preventDefault();
-            e.stopPropagation();
-            window.open('https://translate.google.com/translate?sl=fr&tl=en&u=' + encodeURIComponent(window.location.href), '_blank');
-          });
+          (function() {
+            var BASE = 'https://unfmontreal.github.io';
+            var TRANSLATE = 'https://translate.google.com/translate?sl=fr&tl=en&u=';
+
+            function inProxy() {
+              return window.location.hostname === 'translate.google.com' ||
+                     window.location.hostname.endsWith('.translate.goog');
+            }
+
+            function getOriginalUrl() {
+              if (window.location.hostname === 'translate.google.com') {
+                try {
+                  var u = new URLSearchParams(window.location.search).get('u');
+                  if (u) return decodeURIComponent(u);
+                } catch(_) {}
+              }
+              if (window.location.hostname.endsWith('.translate.goog')) {
+                return BASE + window.location.pathname + window.location.search;
+              }
+              return window.location.href;
+            }
+
+            document.addEventListener('click', function(e) {
+              var a = e.target.closest('a[href*="#translate"]');
+              if (!a) return;
+              e.preventDefault();
+              e.stopPropagation();
+              window.location.href = TRANSLATE + encodeURIComponent(getOriginalUrl());
+            }, true);
+
+            if (inProxy()) {
+              document.addEventListener('click', function(e) {
+                var a = e.target.closest('a[href]');
+                if (!a || !a.href || a.href.includes('#translate')) return;
+                var href = a.href;
+                var isProxy = href.includes('translate.google.com') || href.includes('.translate.goog');
+                var isOurSite = href.includes('unfmontreal.github.io');
+                var isRelative = href.startsWith(window.location.origin);
+                if (!isProxy && !isOurSite && !isRelative) return;
+                e.preventDefault();
+                e.stopPropagation();
+                if (isProxy) {
+                  window.location.href = href;
+                } else {
+                  try {
+                    var u = new URL(href);
+                    window.location.href = TRANSLATE + encodeURIComponent(BASE + u.pathname + u.search);
+                  } catch(_) { window.location.href = href; }
+                }
+              }, true);
+            }
+          })();
           </script>"""
 
           for root, dirs, files in os.walk('_build/html'):
@@ -63,6 +108,7 @@ jobs:
                 path = os.path.join(root, fname)
                 with open(path, 'r', encoding='utf-8', errors='ignore') as f:
                   content = f.read()
+                content = content.replace('<html lang="en"', '<html lang="fr"', 1)
                 content = content.replace('</body>', body_snippet + '\n</body>', 1)
                 with open(path, 'w', encoding='utf-8') as f:
                   f.write(content)
