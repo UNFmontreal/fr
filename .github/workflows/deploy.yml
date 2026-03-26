@@ -65,14 +65,17 @@ jobs:
 
           body_snippet = """<div id="google_translate_element"></div>
           <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('a[href*="#translate"]').forEach(function(a) {
-              a.addEventListener('click', function(e) {
-                e.preventDefault();
-                var sel = document.querySelector('.goog-te-combo');
-                if (sel) { sel.value = 'en'; sel.dispatchEvent(new Event('change')); }
-              });
-            });
+          document.addEventListener('click', function(e) {
+            var a = e.target.closest('a[href*="#translate"]');
+            if (!a) return;
+            e.preventDefault();
+            e.stopPropagation();
+            function doTranslate() {
+              var sel = document.querySelector('.goog-te-combo');
+              if (sel) { sel.value = 'en'; sel.dispatchEvent(new Event('change')); }
+              else { setTimeout(doTranslate, 200); }
+            }
+            doTranslate();
           });
           </script>"""
 
