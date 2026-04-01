@@ -9,11 +9,9 @@ Pour obtenir votre compte, envoyez un courriel à l'adresse suivante __[support.
 
 Veuillez également inclure l'information suivante:
 
-* Votre nom complet, votre adresse et votre numéro de téléphone (jour).
-
-* Votre adresse de courriel (celle qui sera utilisée pour la confirmation des réservations)
-
-* Le nom complet, l'adresse et le numéro de téléphone de l'investigateur
+1. Votre nom complet et votre numéro de téléphone (jour).
+2. Votre adresse de courriel (celle qui sera utilisée pour la confirmation des réservations)
+3. Le nom complet, l'adresse et le numéro de téléphone de l'investigateur
 principal du projet de recherche (si différents de 1.)
 
 Le système de réservation génère des courriels envoyés automatiquement. Pour éviter que ceux-ci ne se retrouvent dans votre dossier pourriel, assurez-vous d'ajouter l'adresse reservationunf@criugm.qc.ca à la liste de vos expéditeurs approuvés.
