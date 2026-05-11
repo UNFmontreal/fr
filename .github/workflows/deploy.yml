@@ -42,19 +42,27 @@ jobs:
           python -m pip install jupyter-book
       - name: Build HTML Assets
         run: jupyter-book build --html
-      - name: Set HTML language to French
+      - name: Set HTML language to French and inject per-page EN flag link
         run: |
           python3 << 'PYEOF'
-          import os
-          for root, dirs, files in os.walk('_build/html'):
-            for fname in files:
-              if fname.endswith('.html'):
-                path = os.path.join(root, fname)
-                with open(path, 'r', encoding='utf-8', errors='ignore') as f:
-                  content = f.read()
-                content = content.replace('<html lang="en"', '<html lang="fr"', 1)
-                with open(path, 'w', encoding='utf-8') as f:
-                  f.write(content)
+          import os, pathlib
+
+          JS = """<script>
+          document.addEventListener('DOMContentLoaded', function() {
+            var link = document.querySelector('a[href*="unfmontreal.github.io/en"]');
+            if (link) {
+              var path = window.location.pathname.replace(/^\\/fr/, '');
+              link.href = 'https://unfmontreal.github.io/en' + path;
+            }
+          });
+          </script>"""
+
+          for f in pathlib.Path('_build/html').rglob('*.html'):
+              html = f.read_text(encoding='utf-8', errors='ignore')
+              html = html.replace('<html lang="en"', '<html lang="fr"', 1)
+              if '</head>' in html:
+                  html = html.replace('</head>', JS + '\n</head>', 1)
+              f.write_text(html, encoding='utf-8')
           PYEOF
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

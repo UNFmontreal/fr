@@ -1,0 +1,85 @@
+name: Sync English translation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.md'
+      - 'myst.yml'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get changed files
+        run: |
+          git diff --name-status HEAD~1 HEAD -- '*.md' myst.yml > changes.txt
+          echo "Changed files:"
+          cat changes.txt
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Translate changed files
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python .github/scripts/translate_changes.py
+
+      - name: Clone en repo and create PR
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          SHORT_SHA=$(git rev-parse --short HEAD)
+          BRANCH="sync/$(date +%Y-%m-%d)-${SHORT_SHA}"
+
+          gh repo clone UNFmontreal/en /tmp/en-repo -- --depth=1
+          cd /tmp/en-repo
+
+          git config user.name "UNF Bot"
+          git config user.email "bot@unfmontreal.ca"
+          git checkout -b "$BRANCH"
+
+          # Apply translated files
+          if [ -d /tmp/translated ]; then
+            rsync -av /tmp/translated/ .
+          fi
+
+          # Apply deletions
+          if [ -f /tmp/deleted_files.txt ]; then
+            while IFS= read -r filepath; do
+              [ -f "$filepath" ] && git rm "$filepath" && echo "Deleted: $filepath"
+            done < /tmp/deleted_files.txt
+          fi
+
+          # Only create PR if there are changes
+          if git diff --cached --quiet && git diff --quiet; then
+            echo "No changes to commit, skipping PR."
+            exit 0
+          fi
+
+          git add -A
+          git commit -m "Sync translation from fr@${SHORT_SHA}"
+          git push origin "$BRANCH"
+
+          gh pr create \
+            --title "Translation sync from fr@${SHORT_SHA}" \
+            --body "$(cat <<'EOF'
+          Auto-generated English translation of changes from the [fr repo](https://github.com/UNFmontreal/fr).
+
+          **Source commit:** UNFmontreal/fr@${{ github.sha }}
+          **Changed files:** see diff
+
+          Please review the translation quality before merging.
+          EOF
+          )" \
+            --base main \
+            --head "$BRANCH"
