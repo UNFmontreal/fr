@@ -45,23 +45,20 @@ jobs:
       - name: Set HTML language to French and inject per-page EN flag link
         run: |
           python3 << 'PYEOF'
-          import os, pathlib
+          import pathlib, re
 
-          JS = """<script>
-          document.addEventListener('DOMContentLoaded', function() {
-            var link = document.querySelector('a[href*="unfmontreal.github.io/en"]');
-            if (link) {
-              var path = window.location.pathname.replace(/^\\/fr/, '');
-              link.href = 'https://unfmontreal.github.io/en' + path;
-            }
-          });
-          </script>"""
-
-          for f in pathlib.Path('_build/html').rglob('*.html'):
+          build = pathlib.Path('_build/html')
+          for f in build.rglob('*.html'):
               html = f.read_text(encoding='utf-8', errors='ignore')
               html = html.replace('<html lang="en"', '<html lang="fr"', 1)
-              if '</head>' in html:
-                  html = html.replace('</head>', JS + '\n</head>', 1)
+              if 'unfmontreal.github.io/en' in html:
+                  rel = f.relative_to(build)
+                  en_url = 'https://unfmontreal.github.io/en/' + str(rel)
+                  html = re.sub(
+                      r'href="https://unfmontreal\.github\.io/en[^"]*"',
+                      f'href="{en_url}"',
+                      html,
+                  )
               f.write_text(html, encoding='utf-8')
           PYEOF
       - name: Upload artifact
