@@ -8,9 +8,9 @@
 :height: 200px
 :align: center
 ```
-**André Cyr, M.Ing., ing.**
+**[André Cyr, M.Ing., ing.](https://www.linkedin.com/in/andré-cyr-469a584)**
 
-Ingénieur IRM et responsable de la sécurité UNF [📧](mailto:mailto:support.unf@criugm.q)
+Ingénieur IRM et responsable de la sécurité UNF [📧](mailto:mailto:support.unf@criugm.qc.ca)
 :::
 
 :::{grid-item}
@@ -21,7 +21,7 @@ Ingénieur IRM et responsable de la sécurité UNF [📧](mailto:mailto:support.
 ```
 **[Basile Pinsard, PhD](https://www.linkedin.com/in/basile-pinsard-94161b8/)**
 
-Responsable neuroinformatique [📧](mailto:mailto:support.unf@criugm.q)
+Responsable neuroinformatique [📧](mailto:mailto:support.unf@criugm.qc.ca)
 :::
 
 :::{grid-item}
@@ -32,7 +32,7 @@ Responsable neuroinformatique [📧](mailto:mailto:support.unf@criugm.q)
 ```
 **Francine Bélanger**
 
-Responsable de la coordination administrative [📧](mailto:mailto:support.unf@criugm.q)
+Responsable de la coordination administrative [📧](mailto:mailto:support.unf@criugm.qc.ca)
 :::
 
 :::{grid-item}
